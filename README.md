@@ -21,3 +21,82 @@ sudo apt-get install gitk git-gui
 
 git clone https://github.com/ArduPilot/ardupilot.git
 
+
+# Gerekli Bileşenlerin Yüklenmesi *
+
+cd ardupilot
+git submodule update --init --recursive
+Tools/environment_install/install-prereqs-ubuntu.sh -y
+cd
+sudo apt install python-wxtools
+sudo apt install python-lxml
+sudo apt install python-pexpect
+. ~/.profile
+
+git config --global url."https://".insteadOf git://
+
+cd ardupilot/ArduCopter
+sim_vehicle.py -w
+
+
+# MAVProxy Kurulumu
+
+sudo pip install future pymavlink MAVProxy
+
+
+# Ardupilot SITL Çalıştırılması
+
+cd ~/ardupilot/ArduCopter
+../Tools/autotest/sim_vehicle.py -w --console --map
+
+
+# Gazebo 11 Kurulumu
+
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+
+wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+
+sudo apt-get update
+sudo apt-get install gazebo11
+sudo apt-get install libgazebo11-dev
+
+
+# Gazebo Ardupilot Eklentisi Kurulumu
+
+git clone https://github.com/khancyr/ardupilot_gazebo
+
+cd ardupilot_gazebo
+
+mkdir build
+cd build
+cmake ..
+make -j4
+sudo make install
+
+
+echo 'source /usr/share/gazebo/setup.sh' >> ~/.bashrc
+echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo/models' >> ~/.bashrc
+
+. ~/.bashrc
+
+
+# Python Paketlerinin Kurulumu
+
+sudo apt-get install python-pip python-dev python3-pip python3-dev
+
+sudo apt-get install python3-dev python3-opencv python3-pip python3-matplotlib python3-pygame python3-lxml python3-yaml
+
+
+# Dronekit Kurulumu
+
+pip install dronekit
+pip3 install dronekit
+
+pip install dronekit-sitl
+pip3 install dronekit-sitl
+
+
+# !!! Gazebo sanal makinede hata verirse aşağıdaki kodu terminalde çalıştırarak hatayı giderebilirsiniz.
+
+export SVGA_VGPU10=0
+echo "export SVGA_VGPU10=0" >> ~/.bashrc
