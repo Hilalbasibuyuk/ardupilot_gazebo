@@ -183,3 +183,8 @@ export SVGA_VGPU10=0
 
 
 echo "export SVGA_VGPU10=0" >> ~/.bashrc
+
+
+# ***ROS Noetic: Gazebo 11.x
+# ROS ile uçak ayarlamalarını içerir
+
