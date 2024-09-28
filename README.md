@@ -235,9 +235,9 @@ cd ~/catkin_ws/src
 git clone https://github.com/byu-magicc/ardupilot_sim.git
 
 
-# ArduPlane SITL Ortamının Kurulması  //  Setting up ArduPlane SITL Environment
+# ArduPlane SITL Ortamının Kurulması ve Açılması  //   Installing and Opening the ArduPlane SITL Environment 
 
-cd ..
+cd ~/catkin_ws
 
 
 catkin_make
@@ -254,7 +254,9 @@ git apply $HOME/catkin_ws/src/ardupilot_sim/patches/Zephyr-Params.patch
 
 
 
-roslaunch ardupilot_sim plane.launch   # Gazebo sabit kanatlı uçak ortamı açılır  //  Gazebo fixed-wing plane environment opens
+roslaunch ardupilot_sim plane.launch  
 
 
+# "roscore" komutunu 1. terminal ekranına yazınız ve çalıştırınız. Ardından "ArduPlane SITL Ortamının Kurulması ve Açılması" kısmını 2. terminal ekranında çalıştırınız. Bunu her açtığınızda yapmalısınız.
 
+# Type the command “roscore” in the 1st terminal screen and run it. Then run “Installing and Opening the ArduPlane SITL Environment” on the 2nd terminal screen. You should do this every time you turn it on.
