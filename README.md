@@ -2,13 +2,14 @@ Teknofest savaşan iha yarışmasındaki görev isterlerini simüle etmek için 
 Using Gazebo simulation and ArduPilot SITL simulation to simulate mission demands in the Teknofest Fixed Wing UAV competition
 
 
-Sanal makine olarak VMware Workstation 17 Player indirebilirsiniz. 
+Sanal makine olarak VMware Workstation 17 Player indirebilirsiniz. // You can download VMware Workstation 17 Player as a virtual machine. 
 
-Ubuntu 20.04 versiyonunu kullanmanız lazım. Aksi takdirde bu repo sizin için uygun olmayabilir.
+Ubuntu 20.04 versiyonunu kullanmanız lazım. Aksi takdirde bu repo sizin için uygun olmayabilir.  //  You must be running Ubuntu version 20.04, otherwise this repo may not be suitable for you.
 
-Sanal makinenizi ve ubuntu işletim sisteminizi hazır hale getirdikten sonra aşağıdakileri sırasıyla terminale yazarak indirmelerinizi yapabilirsiniz.
 
-# Git Kurulumu
+Sanal makinenizi ve ubuntu işletim sisteminizi hazır hale getirdikten sonra aşağıdakileri sırasıyla terminale yazarak indirmelerinizi yapabilirsiniz.   // After making your virtual machine and ubuntu operating system ready, you can make your downloads by typing the following into the terminal respectively.
+
+# Git Kurulumu  //  Git Setup
 
 sudo apt-get update
 
@@ -20,12 +21,12 @@ sudo apt-get install git
 sudo apt-get install gitk git-gui
 
 
-# Ardupilot Dosyalarını Git Üzerinden Bilgisayarımıza İndiriyoruz
+# Ardupilot Dosyalarını Git Üzerinden Bilgisayarımıza İndiriyoruz  //  We Download Ardupilot Files to Our Computer via Git
 
 git clone https://github.com/ArduPilot/ardupilot.git
 
 
-# Gerekli Bileşenlerin Yüklenmesi *
+# Gerekli Bileşenlerin Yüklenmesi  //  Installing Required Components 
 
 cd ardupilot
 
@@ -75,13 +76,13 @@ sim_vehicle.py -w
 
 
 
-# MAVProxy Kurulumu
+# MAVProxy Kurulumu  //  MAVProxy Setup
 
 
 sudo pip install future pymavlink MAVProxy
 
 
-# Ardupilot SITL Çalıştırılması
+# Ardupilot SITL Çalıştırılması  //  Running Ardupilot SITL
 
 cd ~/ardupilot/ArduCopter
 
@@ -89,7 +90,7 @@ cd ~/ardupilot/ArduCopter
 ../Tools/autotest/sim_vehicle.py -w --console --map
 
 
-# Gazebo 11 Kurulumu
+# Gazebo 11 Kurulumu  //  Gazebo 11 Setup
 
 
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
@@ -112,7 +113,7 @@ sudo apt-get install libgazebo11-dev
 
 
 
-# Gazebo Ardupilot Eklentisi Kurulumu
+# Gazebo Ardupilot Eklentisi Kurulumu  //  Gazebo Ardupilot Plugin Installation
 
 git clone https://github.com/khancyr/ardupilot_gazebo
 
@@ -151,7 +152,7 @@ echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo/models' >> ~/.bashrc
 
 
 
-# Python Paketlerinin Kurulumu
+# Python Paketlerinin Kurulumu  //  Installing Python Packages
 
 
 sudo apt-get install python-pip python-dev python3-pip python3-dev
@@ -162,7 +163,7 @@ sudo apt-get install python3-dev python3-opencv python3-pip python3-matplotlib p
 
 
 
-# Dronekit Kurulumu
+# Dronekit Kurulumu  //  Dronekit Setup
 
 pip install dronekit
 
@@ -177,7 +178,7 @@ pip3 install dronekit-sitl
 
 
 
-# !!! Gazebo sanal makinede hata verirse aşağıdaki kodu terminalde çalıştırarak hatayı giderebilirsiniz.
+# !!! Gazebo sanal makinede hata verirse aşağıdaki kodu terminalde çalıştırarak hatayı giderebilirsiniz.  //  !!! If Gazebo gives an error in the virtual machine, you can fix it by running the following code in the terminal.
 
 export SVGA_VGPU10=0
 
@@ -186,5 +187,5 @@ echo "export SVGA_VGPU10=0" >> ~/.bashrc
 
 
 # ***ROS Noetic: Gazebo 11.x
-# ROS ile uçak ayarlamalarını içerir
+# ROS ile uçak ayarlamalarını içerir  //  Includes plane adjustments with ROS
 
