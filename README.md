@@ -189,3 +189,72 @@ echo "export SVGA_VGPU10=0" >> ~/.bashrc
 # ***ROS Noetic: Gazebo 11.x
 # ROS ile uçak ayarlamalarını içerir  //  Includes plane adjustments with ROS
 
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu focal main" > /etc/apt/sources.list.d/ros-latest.list'
+
+
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+
+
+sudo apt-get update
+
+
+sudo apt-get install ros-noetic-desktop-full
+
+
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+
+
+source ~/.bashrc
+
+
+mkdir -p ~/catkin_ws/src
+
+
+cd ~/catkin_ws/
+
+
+catkin_make
+
+
+source devel/setup.bash
+
+
+sudo apt-get install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+
+
+sudo rosdep init
+
+
+
+rosdep update
+
+
+cd ~/catkin_ws/src
+
+
+git clone https://github.com/byu-magicc/ardupilot_sim.git
+
+
+# ArduPlane SITL Ortamının Kurulması  //  Setting up ArduPlane SITL Environment
+
+cd ..
+
+
+catkin_make
+
+
+source devel/setup.bash
+
+
+cd $HOME/ardupilot
+
+
+
+git apply $HOME/catkin_ws/src/ardupilot_sim/patches/Zephyr-Params.patch
+
+
+
+roslaunch ardupilot_sim plane.launch   # Gazebo sabit kanatlı uçak ortamı açılır  //  Gazebo fixed-wing plane environment opens
+
+
+
