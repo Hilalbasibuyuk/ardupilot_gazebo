@@ -9,7 +9,7 @@ Ubuntu 20.04 versiyonunu kullanmanız lazım. Aksi takdirde bu repo sizin için 
 
 Sanal makinenizi ve ubuntu işletim sisteminizi hazır hale getirdikten sonra aşağıdakileri sırasıyla terminale yazarak indirmelerinizi yapabilirsiniz.   // After making your virtual machine and ubuntu operating system ready, you can make your downloads by typing the following into the terminal respectively.
 
-# Git Kurulumu  //  Git Setup
+## Git Kurulumu  //  Git Setup
 
 sudo apt-get update
 
@@ -21,12 +21,12 @@ sudo apt-get install git
 sudo apt-get install gitk git-gui
 
 
-# Ardupilot Dosyalarını Git Üzerinden Bilgisayarımıza İndiriyoruz  //  We Download Ardupilot Files to Our Computer via Git
+## Ardupilot Dosyalarını Git Üzerinden Bilgisayarımıza İndiriyoruz  //  We Download Ardupilot Files to Our Computer via Git
 
 git clone https://github.com/ArduPilot/ardupilot.git
 
 
-# Gerekli Bileşenlerin Yüklenmesi  //  Installing Required Components 
+## Gerekli Bileşenlerin Yüklenmesi  //  Installing Required Components 
 
 cd ardupilot
 
@@ -76,13 +76,13 @@ sim_vehicle.py -w
 
 
 
-# MAVProxy Kurulumu  //  MAVProxy Setup
+## MAVProxy Kurulumu  //  MAVProxy Setup
 
 
 sudo pip install future pymavlink MAVProxy
 
 
-# Ardupilot SITL Çalıştırılması  //  Running Ardupilot SITL
+## Ardupilot SITL Çalıştırılması  //  Running Ardupilot SITL
 
 cd ~/ardupilot/ArduCopter
 
@@ -90,7 +90,7 @@ cd ~/ardupilot/ArduCopter
 ../Tools/autotest/sim_vehicle.py -w --console --map
 
 
-# Gazebo 11 Kurulumu  //  Gazebo 11 Setup
+## Gazebo 11 Kurulumu  //  Gazebo 11 Setup
 
 
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
@@ -113,7 +113,7 @@ sudo apt-get install libgazebo11-dev
 
 
 
-# Gazebo Ardupilot Eklentisi Kurulumu  //  Gazebo Ardupilot Plugin Installation
+## Gazebo Ardupilot Eklentisi Kurulumu  //  Gazebo Ardupilot Plugin Installation
 
 git clone https://github.com/khancyr/ardupilot_gazebo
 
@@ -152,7 +152,7 @@ echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo/models' >> ~/.bashrc
 
 
 
-# Python Paketlerinin Kurulumu  //  Installing Python Packages
+## Python Paketlerinin Kurulumu  //  Installing Python Packages
 
 
 sudo apt-get install python-pip python-dev python3-pip python3-dev
@@ -163,7 +163,7 @@ sudo apt-get install python3-dev python3-opencv python3-pip python3-matplotlib p
 
 
 
-# Dronekit Kurulumu  //  Dronekit Setup
+## Dronekit Kurulumu  //  Dronekit Setup
 
 pip install dronekit
 
@@ -178,7 +178,7 @@ pip3 install dronekit-sitl
 
 
 
-# !!! Gazebo sanal makinede hata verirse aşağıdaki kodu terminalde çalıştırarak hatayı giderebilirsiniz.  //  !!! If Gazebo gives an error in the virtual machine, you can fix it by running the following code in the terminal.
+### !!! Gazebo sanal makinede hata verirse aşağıdaki kodu terminalde çalıştırarak hatayı giderebilirsiniz.  //  !!! If Gazebo gives an error in the virtual machine, you can fix it by running the following code in the terminal.
 
 export SVGA_VGPU10=0
 
@@ -186,8 +186,8 @@ export SVGA_VGPU10=0
 echo "export SVGA_VGPU10=0" >> ~/.bashrc
 
 
-# ***ROS Noetic: Gazebo 11.x
-# ROS ile uçak ayarlamalarını içerir  //  Includes plane adjustments with ROS
+## ***ROS Noetic: Gazebo 11.x
+### ROS ile uçak ayarlamalarını içerir  //  Includes plane adjustments with ROS
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu focal main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -235,7 +235,7 @@ cd ~/catkin_ws/src
 git clone https://github.com/byu-magicc/ardupilot_sim.git
 
 
-# ArduPlane SITL Ortamının Kurulması ve Açılması  //   Installing and Opening the ArduPlane SITL Environment 
+## ArduPlane SITL Ortamının Kurulması ve Açılması  //   Installing and Opening the ArduPlane SITL Environment 
 
 cd ~/catkin_ws
 
@@ -257,9 +257,7 @@ git apply $HOME/catkin_ws/src/ardupilot_sim/patches/Zephyr-Params.patch
 roslaunch ardupilot_sim plane.launch  
 
 
-# "roscore" komutunu 1. terminal ekranına yazınız ve çalıştırınız. Ardından "ArduPlane SITL Ortamının Kurulması ve Açılması" kısmını 2. terminal ekranında çalıştırınız. Bunu her açtığınızda yapmalısınız.
-
-# Type the command “roscore” in the 1st terminal screen and run it. Then run “Installing and Opening the ArduPlane SITL Environment” on the 2nd terminal screen. You should do this every time you turn it on.
+### "roscore" komutunu 1. terminal ekranına yazınız ve çalıştırınız. Ardından "ArduPlane SITL Ortamının Kurulması ve Açılması" kısmını 2. terminal ekranında çalıştırınız. Bunu her açtığınızda yapmalısınız.  //  Type the command “roscore” in the 1st terminal screen and run it. Then run “Installing and Opening the ArduPlane SITL Environment” on the 2nd terminal screen. You should do this every time you turn it on.
 
 
-#### Bu ardupilot_sim reposunda kamera eklentisi eklenmiş halde değildir. Dosyalarda cessna.xacro dosyasını bu repodaki cessna.xacro dosyası ile aynı yaparsanız kamera eklenecektir  //   This ardupilot_sim repo does not have the camera plugin added. If you make the cessna.xacro file in the files the same as the cessna.xacro file in this repo, the camera will be added  
+### ardupilot_sim reposunda kamera eklentisi eklenmiş halde değildir. Dosyalarda cessna.xacro dosyasını bu repodaki cessna.xacro dosyası ile aynı yaparsanız kamera eklenecektir  //   This ardupilot_sim repo does not have the camera plugin added. If you make the cessna.xacro file in the files the same as the cessna.xacro file in this repo, the camera will be added  
