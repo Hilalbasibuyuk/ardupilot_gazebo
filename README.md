@@ -261,3 +261,5 @@ roslaunch ardupilot_sim plane.launch
 
 
 ### ardupilot_sim reposunda kamera eklentisi eklenmiş halde değildir. Dosyalarda cessna.xacro dosyasını bu repodaki cessna.xacro dosyası ile aynı yaparsanız kamera eklenecektir  //   This ardupilot_sim repo does not have the camera plugin added. If you make the cessna.xacro file in the files the same as the cessna.xacro file in this repo, the camera will be added  
+
+### kamera.py dosyasını uçak dünyası açıkken bir terminalde çalıştırırsanız kamera görüntüsünü alacaksınız.  //  If you run the kamera.py file in a terminal with airplane world on, you will get the camera image.
