@@ -260,3 +260,6 @@ roslaunch ardupilot_sim plane.launch
 # "roscore" komutunu 1. terminal ekranına yazınız ve çalıştırınız. Ardından "ArduPlane SITL Ortamının Kurulması ve Açılması" kısmını 2. terminal ekranında çalıştırınız. Bunu her açtığınızda yapmalısınız.
 
 # Type the command “roscore” in the 1st terminal screen and run it. Then run “Installing and Opening the ArduPlane SITL Environment” on the 2nd terminal screen. You should do this every time you turn it on.
+
+
+# Bu ardupilot_sim reposunda kamera eklentisi eklenmiş halde değildir. Dosyalarda cessna.xacro dosyasını bu repodaki cessna.xacro dosyası ile aynı yaparsanız kamera eklenecektir  //   This ardupilot_sim repo does not have the camera plugin added. If you make the cessna.xacro file in the files the same as the cessna.xacro file in this repo, the camera will be added  
